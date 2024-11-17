@@ -1,8 +1,7 @@
 # ArtiAnalytics AI Engineer Assignment
 
-This project implements the steps given in AI Engineer Assignment by ArtiAnalytics.
-The task is to develop a simple feedforward neural network and observe how it performs on given mnist data.
-Dataset should be split into 10 subsets and then augmented as explained in the assignment sheet.
+This project implements the steps outlined in the AI Engineer Assignment by ArtiAnalytics. The task is to develop a simple feedforward neural network and evaluate its performance on the provided MNIST dataset. The dataset is first split into 10 subsets and then augmented as specified in the assignment instructions.
+
 
 # Repository Structure
 The repository is organized as follows:
