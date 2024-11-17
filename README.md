@@ -6,23 +6,23 @@ Dataset should be split into 10 subsets and then augmented as explained in the a
 
 # Repository Structure
 The repository is organized as follows:
-- config/  # Configuration files
+- config/  - Configuration files
   - config.yaml
-- data/ # To store the original and augmented datasets
-  - raw/ # Original dataset
-  - processed/ # Augmented datasets
-- results/ # To save plots and models
+- data/  - To store the original and augmented datasets
+  - raw/ - Original dataset
+  - processed/ - Augmented datasets
+- results/  - To save plots and models
   - plots/
   - models/
-- src/  # All (python) scripts
+- src/  
   - main.py
   - utils.py
   - train.py
   - ensemble.py
   - data_preprocessing.py
-- ARTI_Analytics_Task_AI_Eng.pdf # Assignment sheet
+- ARTI_Analytics_Task_AI_Eng.pdf 
 - README.md
-- requirements.txt # Packages to install
+- requirements.txt
 
 # How to run the application
 
@@ -33,7 +33,7 @@ After installing the dependencies, you can run the main script of the applicatio
 `python src/main.py`
 
 # Data Preprocessing
-Dataset samples are sorted in 10 subsets based on their labels. Each out of 10 subsets is then enlarged by adding 5%, 10% and 15% of randomly selected samples from other 9 subsets.
+The dataset is divided into 10 subsets based on their labels. Each of these 10 subsets is then augmented by adding 5%, 10%, and 15% of randomly selected samples from the other 9 subsets.
 
 # Training
 A simple feedforward neural network with 3 layers, each with 50 neurons, has been created. Parameters used to train the network:
@@ -132,11 +132,11 @@ Total training time for 15.0% augmentation: 53.26 seconds
 |  Dataset + 10% Aug. |       100%          |   1.47e-05          |        54.59%          |         9.98          | 
 |  Dataset + 15% Aug. |       100%          |   2.118e-05         |        34.84%          |         15.17         |
 
-# Interpretation of results
- We can notice that all models overfit, which is expected since data is severely imbalanced. The model achieves high training accuracy by learning to predict the dominant class for most (or all) of the data. This is because predicting the dominant class for most inputs will lead to a low training loss. Since validation loss/accuracy doesn't improve in the beginning, early stopping is triggered and training stops after 6 epochs (when early stopping patience is set to 5).
+# Interpretation of Results
+We can observe that all the models overfit, which is expected given the severe class imbalance in the dataset. The model achieves high training accuracy by learning to predict the dominant class for most (or all) of the data. This happens because predicting the dominant class for the majority of inputs results in a low training loss. Since the validation loss and accuracy do not improve initially, early stopping is triggered, and training halts after 6 epochs (when early stopping patience is set to 5).
 
- Increasing the number of samples from other datasets decreases validation accuracy because a model now would learn to generalize a bit better on other classes and would be less biased towards the dominant class. The validation accuracy is still computed on a 1-class-dominant subset so we can notice that the model doesn't simply predict the major class all the time as it was when the training dataset was less augmented. However, having 15% of augmentation is still not enough for a model to generalize well enough.
+Increasing the number of samples from other datasets leads to a decrease in validation accuracy. This is because the model now learns to generalize better across other classes and becomes less biased towards the dominant class. While the validation accuracy is still computed on a subset where the dominant class is overrepresented, we can see that the model no longer predicts the major class for all inputs, as it did when the training dataset was less augmented. However, 15% augmentation is still insufficient for the model to generalize well.
 
- # Majority voting
+ # Majority Voting
 
- Since each model out of 10 models is overfitting and therefore predicting the class it was trained on, as a result we would always have the same 10-element prediction array [0 1 2 3 4 5 6 7 8 9] where each element represents the result of a model. Every class label is predicted once, meaning that voting would always pick the first class as a final prediction. Therefore we have the same accuracy of 9,79% independently of how much the dataset has been augmented since 15% is still a small subset to make models generalize better.
+Since each of the 10 models is overfitting and thus predicting the class it was trained on, the resulting predictions are always the same 10-element array: `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`, where each element represents the prediction of a different model. This means that every class label is predicted exactly once, so the voting process will always select the first class as the final prediction. As a result, the accuracy remains constant at 9.79%, regardless of how much the dataset is augmented, since 15% is still too small a subset to enable the models to generalize better.
