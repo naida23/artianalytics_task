@@ -6,23 +6,7 @@ Dataset should be split into 10 subsets and then augmented as explained in the a
 
 # Repository Structure
 The repository is organized as follows:
-- config/  - Configuration files
-  - config.yaml
-- data/  - To store the original and augmented datasets
-  - raw/ - Original dataset
-  - processed/ - Augmented datasets
-- results/  - To save plots and models
-  - plots/
-  - models/
-- src/  
-  - main.py
-  - utils.py
-  - train.py
-  - ensemble.py
-  - data_preprocessing.py
-- ARTI_Analytics_Task_AI_Eng.pdf 
-- README.md
-- requirements.txt
+config/ # Configuration files │ ├── config.yaml │ data/ # Original and augmented datasets │ ├── raw/ # Original dataset │ └── processed/ # Augmented datasets │ results/ # Directory to save plots and models │ ├── plots/ # Saved plots │ └── models/ # Saved models │ src/ # Source code │ ├── main.py # Main script to run the project ├── utils.py # Utility functions ├── train.py # Training script ├── ensemble.py # Ensemble methods └── data_preprocessing.py # Data preprocessing script │ ARTI_Analytics_Task_AI_Eng.pdf # Project report README.md # Project documentation requirements.txt # Python dependencies
 
 # How to run the application
 
