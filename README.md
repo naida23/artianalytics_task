@@ -23,6 +23,8 @@ The repository is organized as follows:
 - README.md
 - requirements.txt
 
+NOTE: Data is not in the GitHub repo due to its size. Please create your own data/raw folder and place a csv file there to run the application. 
+
 # How to run the application
 
 To set up the project, you need to install the required dependencies listed in the requirements.txt file. You can do this by running the following command in your terminal:
