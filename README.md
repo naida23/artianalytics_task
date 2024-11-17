@@ -48,9 +48,9 @@ A simple feedforward neural network with 3 layers, each with 50 neurons, has bee
 
 Each subset is split into training/testing dataset with 80/20 ratio.
 
-Total training time for 5.0% augmentation: 52.22 seconds
-Total training time for 10.0% augmentation: 53.78 seconds
-Total training time for 15.0% augmentation: 53.26 seconds
+- Total training time for 5.0% augmentation: 52.22 seconds,
+- Total training time for 10.0% augmentation: 53.78 seconds,
+- Total training time for 15.0% augmentation: 53.26 seconds.
 
 
 # Results
